@@ -8,8 +8,10 @@ import org.openqa.selenium.WebDriver;
 import objects.propertycapsuleobject;
 
 public class validations4 {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
+		
+		//password and email invalid validations
 		browserinvocationPC ob1 = new browserinvocationPC();
 		WebDriver driver=ob1.initializing();
 		propertycapsuleobject ob = new propertycapsuleobject(driver);
@@ -29,6 +31,7 @@ public class validations4 {
 		{
 			System.out.println("improper validations");
 				}
-	
+		Thread.sleep(5000);
+		driver.close();
 }
 }

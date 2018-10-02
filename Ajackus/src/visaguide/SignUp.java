@@ -12,6 +12,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 
 import objects.loginobject;
@@ -20,7 +22,7 @@ import objects.signupobject;
 public class SignUp extends browserinvocation{
 
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		Properties property=new Properties();
 		FileInputStream filelocation=new FileInputStream("C:\\Users\\Priyanka\\eclipse-workspace\\Ajackus\\src\\visaguide\\signup.properties");
 		property.load(filelocation);
@@ -71,9 +73,23 @@ public class SignUp extends browserinvocation{
 				 ob.password().sendKeys(password);
 				 ob.confirmpassword().sendKeys(confirmpassword);
 				 ob.signupclick().click();
-				 
+				 //wait for logout link
+				 WebDriverWait d= new WebDriverWait(driver, 5);
+					d.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[contains(@class,'margin-right-0')]"))));
+					Thread.sleep(3000);
+					//for user already exists
+					int count =driver.findElements(By.id("btn-login")).size();
+					if(count>0)
+{
+					System.out.println("Signup unsuccessful");
+}
+					else
+					{
+						System.out.println("Signup successful");
+					}
 				 File src=	 ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 					FileUtils.copyFile(src,new File(screenshot));
+					Thread.sleep(5000);
 				 driver.close();
 				 
 				

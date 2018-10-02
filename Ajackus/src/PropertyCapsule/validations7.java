@@ -12,6 +12,7 @@ public class validations7 {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 
+		//Terms and condition validation
 browserinvocationPC ob1 = new browserinvocationPC();
 		
 		WebDriver driver=ob1.initializing();
@@ -30,6 +31,8 @@ browserinvocationPC ob1 = new browserinvocationPC();
 		{
 			System.out.println("Unsuccessful");
 		}
+		Thread.sleep(5000);
+		driver.close();
 	}
 
 }

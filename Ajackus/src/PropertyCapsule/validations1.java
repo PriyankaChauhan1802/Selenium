@@ -9,10 +9,10 @@ import objects.propertycapsuleobject;
 
 public class validations1 {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
-		
+		//password and email required validation
 		browserinvocationPC ob1 = new browserinvocationPC();
 		
 		WebDriver driver=ob1.initializing();
@@ -30,7 +30,8 @@ public class validations1 {
 		{
 			System.out.println("improper validations");
 				}
-	
+		Thread.sleep(5000);
+		driver.close();
 	}
 	
 	

@@ -15,6 +15,7 @@ public class validations6 {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 
+		//Invalid full name and cell number validations
 		Properties property=new Properties();
 		FileInputStream filelocation=new FileInputStream("C:\\Users\\Priyanka\\eclipse-workspace\\Ajackus\\src\\PropertyCapsule\\signuppc.properties");
 		property.load(filelocation);
@@ -47,7 +48,8 @@ public class validations6 {
 		{
 			System.out.println("improper validations");
 				}
-
-
+Thread.sleep(5000);
+driver.close();
 }
+	
 }

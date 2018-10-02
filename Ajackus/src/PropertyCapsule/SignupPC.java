@@ -48,7 +48,8 @@ public class SignupPC {
 				ob.code().click();
 				Thread.sleep(5000);
 				File src=	 ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(src,new File(screenshot));			
+				FileUtils.copyFile(src,new File(screenshot));
+				Thread.sleep(3000); //after clicking get code the site doesn't load throwing an error
 				driver.close();
 				
 

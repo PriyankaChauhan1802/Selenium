@@ -17,7 +17,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ContactUs {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		Properties property=new Properties();
 		FileInputStream filelocation=new FileInputStream("C:\\Users\\Priyanka\\eclipse-workspace\\Ajackus\\src\\visaguide\\contactus.properties");
@@ -50,9 +50,20 @@ public class ContactUs {
 		ob1.click(driver.findElement(By.id("ember889"))).sendKeys(purpose).build().perform();
 		ob1.click(driver.findElement(By.id("ember892"))).sendKeys(message).build().perform();
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(5000);
 		
+		//verifying successful submission
+		if(driver.findElement(By.xpath("//div[@class='side-margin-10']/div/h2")).getText().equals("Testimonials"))
+				{
+			System.out.println("Successful");
+				}
+		else
+		{
+			System.out.println("Unsuccessful");
+		}
 		File src=	 ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src,new File(screenshot));
+		Thread.sleep(5000);
 		driver.close();
 	}
 
